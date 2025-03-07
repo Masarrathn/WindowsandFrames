@@ -1,0 +1,29 @@
+package SeleniumPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class HerokuAlert {
+
+	public static void main(String[] args) throws Exception {
+
+     WebDriverManager.chromedriver().setup();
+     WebDriver driver= new ChromeDriver();
+     
+     driver.get("https://the-internet.herokuapp.com/windows");
+     driver.manage().window().maximize();
+     Thread.sleep(3000);
+     driver.findElement(By.xpath("//a[normalize-space()='Click Here']")).click();
+     driver.findElement(By.xpath("//h3[normalize-space()='New Window']"));
+     driver.close();
+     driver.switchTo().defaultContent();
+	 driver.quit();
+		
+     
+
+	}
+
+}
